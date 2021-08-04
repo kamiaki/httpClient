@@ -1,7 +1,6 @@
 package com.aki;
 
 import com.google.gson.Gson;
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.SneakyThrows;
 
 import java.util.HashMap;
@@ -68,7 +67,7 @@ public class App {
         List<String> openids = data.getOpenid();
         for (String openid : openids) {
             User user = getUser(accessToken, openid);
-            if ("王小秋".equals(user.getNickname())) System.out.println(user);
+            if ("floyd".equals(user.getNickname())) System.out.println(user);
         }
         String reStr = sendMsg(accessToken, "oVxDHw4gpAc8GILAZ2wxl7Tpvs3E", "你好!");
         System.out.println(reStr);
