@@ -12,7 +12,6 @@ import java.util.Map;
  * Hello world!
  */
 public class App {
-
     public static final String appid = "wx501e543f56ab0199";
     public static final String secret = "7d06e8448e66b9644dce65657a8d21b8";
 
@@ -22,8 +21,6 @@ public class App {
     public static final String url_userList = "https://api.weixin.qq.com/cgi-bin/user/get";
     public static final String url_userInfo = "https://api.weixin.qq.com/cgi-bin/user/info";
     public static final String url_sendMsg = "https://api.weixin.qq.com/cgi-bin/message/custom/send";
-
-    public static final String url3 = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=";
 
     public static String getAccessToken() {
         String query = "grant_type=client_credential" + "&appid=" + appid + "&secret=" + secret;
@@ -66,13 +63,13 @@ public class App {
     @SneakyThrows
     public static void main(String[] args) {
         String accessToken = getAccessToken();
-//        UserList userList = getUserList(accessToken);
-//        UserList.DataBean data = userList.getData();
-//        List<String> openids = data.getOpenid();
-//        for (String openid : openids) {
-//            User user = getUser(accessToken, openid);
-//            if ("王小秋".equals(user.getNickname())) System.out.println(user);
-//        }
+        UserList userList = getUserList(accessToken);
+        UserList.DataBean data = userList.getData();
+        List<String> openids = data.getOpenid();
+        for (String openid : openids) {
+            User user = getUser(accessToken, openid);
+            if ("王小秋".equals(user.getNickname())) System.out.println(user);
+        }
         String reStr = sendMsg(accessToken, "oVxDHw4gpAc8GILAZ2wxl7Tpvs3E", "你好!");
         System.out.println(reStr);
     }
